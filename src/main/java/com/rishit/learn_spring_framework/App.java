@@ -12,7 +12,7 @@ public class App {
             )
         ){
             System.out.println(context.getBean(GameRunner.class).getGame());
-            context.getBean(GameRunner.class).getGame().gameMove("click");
+            context.getBean(GameRunner.class).getGame().gameMove("up");
         }
     }
 }
