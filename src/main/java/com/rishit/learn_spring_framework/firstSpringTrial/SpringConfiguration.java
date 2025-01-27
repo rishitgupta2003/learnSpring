@@ -1,7 +1,9 @@
-package com.rishit.learn_spring_framework;
+package com.rishit.learn_spring_framework.firstSpringTrial;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class SpringConfiguration {
@@ -17,10 +19,19 @@ public class SpringConfiguration {
 
     @Bean
     public Person person(){
-        return new Person("Rishit", 21);
+        return new Person("Rishit", 21, new Address("", ""));
     }
 
     @Bean
+    public Person person2(String name, Integer age, @Qualifier("Old Place") Address address2){
+        return new Person(
+                name,
+                age,
+                address2
+        );
+    }
+
+    @Bean @Primary @Qualifier("Old Place")
     public Address address2(){
         return new Address(
                 "B-4/157C",
