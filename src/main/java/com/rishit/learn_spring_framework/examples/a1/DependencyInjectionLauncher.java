@@ -10,18 +10,19 @@ import java.util.Arrays;
 
 @Component
 class YourBusinessClass{
+    //@Autowired -> Field Based Dependency Injection | Done by using Reflections
     Dependency1 dependency1;
     Dependency2 dependency2;
 
 
-    @Autowired
+    //@Autowired -> Constructor Based Dependency Injection | Autowired Annotation not needed
     public YourBusinessClass(Dependency1 dependency1, Dependency2 dependency2) {
         System.out.println("Construction Injection");
         this.dependency1 = dependency1;
         this.dependency2 = dependency2;
     }
 
-//    @Autowired
+//    @Autowired -> Setter Based Dependency Injection
 //    public void setDependency1(Dependency1 dependency1) {
 //        System.out.println("Setting 1");
 //        this.dependency1 = dependency1;
