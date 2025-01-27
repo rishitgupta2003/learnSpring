@@ -1,5 +1,7 @@
 package com.rishit.learn_spring_framework.game;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MarioGame implements GameConsole{
     @Override
     public void gameMove(String move) {

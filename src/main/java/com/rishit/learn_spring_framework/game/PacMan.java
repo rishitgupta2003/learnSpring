@@ -1,5 +1,10 @@
 package com.rishit.learn_spring_framework.game;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
+@Qualifier("PacManQualifier")
 public class PacMan implements GameConsole{
     @Override
     public void gameMove(String move) {

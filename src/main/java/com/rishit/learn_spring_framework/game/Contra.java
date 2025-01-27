@@ -1,5 +1,9 @@
 package com.rishit.learn_spring_framework.game;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
 
+@Component
+@Primary
 public class Contra implements GameConsole{
     @Override
     public void gameMove(String move) {
