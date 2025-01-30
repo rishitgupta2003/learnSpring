@@ -5,9 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class H2JpaHibernateApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(H2JpaHibernateApplication.class, args);
 	}
-
 }
