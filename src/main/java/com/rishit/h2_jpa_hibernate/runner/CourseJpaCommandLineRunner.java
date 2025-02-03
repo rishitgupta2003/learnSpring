@@ -31,5 +31,7 @@ public class CourseJpaCommandLineRunner implements CommandLineRunner {
         courseSpringJpaRepository.save(new Courses(3, "Jakarta Persistence API", "Scaler"));
 
         courseSpringJpaRepository.findAll().forEach(System.out::println);
+        courseSpringJpaRepository.findByVendor("Scaler").forEach(System.out::println);
+        courseSpringJpaRepository.findByName("J2EE").forEach(System.out::println);
     }
 }
