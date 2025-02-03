@@ -1,9 +1,15 @@
 package com.rishit.h2_jpa_hibernate.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Courses {
-    private long id;
-    private  String name;
-    private String vendor;
+
+    private @Id long id;
+    private @Column(name="name") String name;
+    private @Column(name="vendor") String vendor;
 
     public Courses() {}
 

@@ -6,7 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 
-@Component
+//@Component
 public class CourseCommandLineRunner implements CommandLineRunner{
 
 //    @Autowired
@@ -42,9 +42,6 @@ public class CourseCommandLineRunner implements CommandLineRunner{
         );
 
         crudJdbcRepository.deleteById(1);
-
-        System.out.println(crudJdbcRepository.findById(2L));
-        System.out.println(crudJdbcRepository.findById(3L));
     }
 }
 
