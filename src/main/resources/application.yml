@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: spring-boot
+
+  devtools:
+    add-properties: true
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/employee_db
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
