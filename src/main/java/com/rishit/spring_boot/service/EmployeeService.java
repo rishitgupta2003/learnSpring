@@ -16,7 +16,7 @@ public class EmployeeService {
     private final EmployeeDTOMapper employeeDTOMapper;
 
     public EmployeeDTO createEmployee(Employee employee){
-        return Optional.of(employeeRepository.save(employee)).map(employeeDTOMapper).get();
+        return Optional.of(employeeRepository.save(employee)).map(employeeDTOMapper).orElse(null);
     }
 
     public List<EmployeeDTO> addAllEmployees(List<Employee> list){

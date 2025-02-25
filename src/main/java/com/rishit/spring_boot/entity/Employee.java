@@ -5,14 +5,13 @@ import com.rishit.spring_boot.util.Department;
 import com.rishit.spring_boot.util.JobTitle;
 import com.rishit.spring_boot.util.Role;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.validation.annotation.Validated;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -22,40 +21,36 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Getter
 @Setter
+@Validated
+@Data
 public class Employee {
 
-    @NotNull
-    @Positive
+    @Positive(message = "ID cannot be Negative")
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long employeeID;
 
-    @NotNull
-    @NotEmpty
+    @NotNull(message = "Employee Name cannot be Null")
+    @NotEmpty(message = "Employee Name cannot be Empty")
     @Column
     private String employeeName;
 
-    @NotNull
-    @NotBlank
+    @NotNull(message = "Department cannot be Null")
     @Column
     private Department department;
 
-    @NotNull
-    @NotBlank
+    @NotNull(message = "Role cannot be Null")
     @Column
     private Role role;
 
-    @NotNull
-    @NotBlank
+    @NotNull(message = "Job Title cannot be Null")
     @Column
     private JobTitle jobTitle;
 
-    @NotNull
-    @NotBlank
+    @NotNull(message = "Hired Date cannot be Null")
     @Column
     private LocalDate hiredDate;
 
-    @NotNull
     @Column
     private BigDecimal baseSalary;
 
