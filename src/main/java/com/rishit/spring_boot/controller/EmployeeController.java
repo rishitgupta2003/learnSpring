@@ -3,6 +3,7 @@ package com.rishit.spring_boot.controller;
 import com.rishit.spring_boot.entity.Employee;
 import com.rishit.spring_boot.entity.EmployeeDTO;
 import com.rishit.spring_boot.service.EmployeeService;
+import com.rishit.spring_boot.util.JobTitle;
 import com.rishit.spring_boot.util.response_handlers.ApiException;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -45,6 +46,17 @@ public class EmployeeController {
         EmployeeDTO employeeById = employeeService.getEmployeeById(id);
         logger.info("Employee Fetched with ID -> {}" , id);
         return new ResponseEntity<>(toEntityModel(employeeById), HttpStatus.OK);
+    }
+
+    @GetMapping("/jobTitle/{jobTitle}")
+    public ResponseEntity<List<EntityModel<EmployeeDTO>>> getEmployeeByJobTitle(@PathVariable JobTitle jobTitle){
+        List<EntityModel<EmployeeDTO>> list = employeeService.findByJobTitle(jobTitle).stream()
+                .map(this::toEntityModel)
+                .toList();
+
+        logger.info("All Employees Fetched with JobTitle -> {}", jobTitle);
+
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     @PostMapping("/all")

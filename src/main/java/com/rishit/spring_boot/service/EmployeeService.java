@@ -3,6 +3,7 @@ package com.rishit.spring_boot.service;
 import com.rishit.spring_boot.entity.Employee;
 import com.rishit.spring_boot.entity.EmployeeDTO;
 import com.rishit.spring_boot.repository.EmployeeRepository;
+import com.rishit.spring_boot.util.JobTitle;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +40,13 @@ public class EmployeeService {
             return employeeRepository.save(employee);
         }
         return null;
+    }
+
+    public List<EmployeeDTO> findByJobTitle(JobTitle jobTitle){
+        return employeeRepository.findByJobTitle(jobTitle)
+                .stream()
+                .map(employeeDTOMapper)
+                .toList();
     }
 
     public void deleteEmployee(Long id) {

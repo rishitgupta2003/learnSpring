@@ -1,6 +1,5 @@
 package com.rishit.spring_boot.util.response_handlers;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
