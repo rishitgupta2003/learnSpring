@@ -3,6 +3,9 @@ package fcc_multithreading.exchanger;
 import java.util.concurrent.Exchanger;
 
 public class ExchangerDemo {
+
+    // Works perfectly with only 2 threads
+
     public static void main(String[] args) {
         Exchanger<Integer> exchanger = new Exchanger<>();
         new Thread(new FirstThread(exchanger)).start();
